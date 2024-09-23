@@ -1,0 +1,23 @@
+<%= form_with model: [ article, article.comments.build ] do |form| %>
+  <div>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+    <% @comment&.errors&.full_messages_for(:commenter)&.each do |message| %>
+      <div class="w3-container w3-red error-msg"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+    <% @comment&.errors&.full_messages_for(:body)&.each do |message| %>
+      <div class="w3-container w3-red error-msg"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+  </div>
+  <div class="w3-margin-top">
+    <%= form.submit %>
+  </div>
+<% end %>

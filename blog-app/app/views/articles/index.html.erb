@@ -1,0 +1,15 @@
+<h1>Articles</h1>
+
+<p class="w3-hover-text-blue w3-text-pink">Our blog has <span class="count-span"><%= Article.public_count %></span> articles and counting!</p>
+
+<ul>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path, class: "w3-button w3-green w3-round" %>

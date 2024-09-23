@@ -1,0 +1,46 @@
+# Ignore bundler config.
+/blog-app/.bundle
+/micro-reddit/.bundle
+
+# Ignore all environment files (except templates).
+/blog-app/.env*
+!/blog-app/.env*.erb
+/micro-reddit/.env*
+!/micro-reddit/.env*.erb
+
+# Ignore all logfiles and tempfiles.
+/blog-app/log/*
+/blog-app/tmp/*
+!/blog-app/log/.keep
+!/blog-app/tmp/.keep
+/micro-reddit/log/*
+/micro-reddit/tmp/*
+!/micro-reddit/log/.keep
+!/micro-reddit/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/blog-app/tmp/pids/*
+!/blog-app/tmp/pids/
+!/blog-app/tmp/pids/.keep
+/micro-reddit/tmp/pids/*
+!/micro-reddit/tmp/pids/
+!/micro-reddit/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/blog-app/storage/*
+!/blog-app/storage/.keep
+/blog-app/tmp/storage/*
+!/blog-app/tmp/storage/
+!/blog-app/tmp/storage/.keep
+/micro-reddit/storage/*
+!/micro-reddit/storage/.keep
+/micro-reddit/tmp/storage/*
+!/micro-reddit/tmp/storage/
+!/micro-reddit/tmp/storage/.keep
+
+/blog-app/public/assets
+/micro-reddit/public/assets
+
+# Ignore master key for decrypting credentials and more.
+/blog-app/config/master.key
+/micro-reddit/config/master.key

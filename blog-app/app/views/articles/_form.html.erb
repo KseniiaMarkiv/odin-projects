@@ -1,0 +1,29 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="w3-container w3-red error-msg"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="w3-container w3-red error-msg"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+  </div>
+
+
+  <div class="w3-margin-top">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<p><%= link_to 'Back', articles_path(@articles), class: "w3-button w3-grey w3-round" %></p>
