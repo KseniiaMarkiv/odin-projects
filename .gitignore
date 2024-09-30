@@ -2,6 +2,8 @@
 /blog-app/.bundle
 /micro-reddit/.bundle
 /re-former/.bundle
+/members-only/.bundle
+
 
 # Ignore all environment files (except templates).
 /blog-app/.env*
@@ -10,6 +12,8 @@
 !/micro-reddit/.env*.erb
 /re-former/.env*
 !/re-former/.env*.erb
+/members-only/.env*
+!/members-only/.env*.erb
 
 # Ignore all logfiles and tempfiles.
 /blog-app/log/*
@@ -24,6 +28,10 @@
 /re-former/tmp/*
 !/re-former/log/.keep
 !/re-former/tmp/.keep
+/members-only/log/*
+/members-only/tmp/*
+!/members-only/log/.keep
+!/members-only/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
 /blog-app/tmp/pids/*
@@ -35,6 +43,9 @@
 /re-former/tmp/pids/*
 !/re-former/tmp/pids/
 !/re-former/tmp/pids/.keep
+/members-only/tmp/pids/*
+!/members-only/tmp/pids/
+!/members-only/tmp/pids/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
 /blog-app/storage/*
@@ -52,12 +63,20 @@
 /re-former/tmp/storage/*
 !/re-former/tmp/storage/
 !/re-former/tmp/storage/.keep
+/members-only/storage/*
+!/members-only/storage/.keep
+/members-only/tmp/storage/*
+!/members-only/tmp/storage/
+!/members-only/tmp/storage/.keep
+
 
 /blog-app/public/assets
 /micro-reddit/public/assets
 /re-former/public/assets
+/members-only/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /blog-app/config/master.key
 /micro-reddit/config/master.key
 /re-former/config/master.key
+/members-only/config/master.key
