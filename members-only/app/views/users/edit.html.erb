@@ -4,7 +4,8 @@
 
 <br>
 
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+<div class="d-flex gap-2">
+  <%= link_to "Show this user", @user, class: "btn btn-primary btn-sm" %>
+  <%= link_to "Back to users", users_path, class: "btn btn-secondary btn-sm" %>
 </div>
+
