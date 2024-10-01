@@ -1,9 +1,9 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
+<%= form_with(model: resource, local: true) do |form| %>
+  <% if resource.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this user from being saved:</h2>
       <ul>
-        <% user.errors.each do |error| %>
+        <% resource.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
   <div class="mb-3">
     <%= form.label :username, class: "form-label" %>
     <%= form.text_field :username, class: "form-control", required: true %>
-    <% user.errors.full_messages_for(:username).each do |message| %>
+    <% resource.errors.full_messages_for(:username).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
@@ -21,7 +21,7 @@
   <div class="mb-3">
     <%= form.label :email, class: "form-label" %>
     <%= form.text_field :email, class: "form-control", required: true %>
-    <% user.errors.full_messages_for(:email).each do |message| %>
+    <% resource.errors.full_messages_for(:email).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
@@ -29,7 +29,7 @@
   <div class="mb-3">
     <%= form.label :password, class: "form-label" %>
     <%= form.password_field :password, class: "form-control", required: true %>
-    <% user.errors.full_messages_for(:password).each do |message| %>
+    <% resource.errors.full_messages_for(:password).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
@@ -37,7 +37,7 @@
   <div class="mb-3">
     <%= form.label :password_confirmation, class: "form-label" %>
     <%= form.password_field :password_confirmation, class: "form-control", required: true %>
-    <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+    <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
