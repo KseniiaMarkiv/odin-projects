@@ -26,9 +26,10 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions mb-3 d-flex align-items-center">
     <%= f.submit "Log in", class: "btn btn-info btn-sm" %>
+    <span class="mx-2">|</span>
+    <%= render "users/shared/links" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
