@@ -12,9 +12,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       # Automatically sign in the user after successful sign-up
       sign_in(@user)
-      redirect_to users_path, notice: 'User successfully created.'
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: 'User successfully created.' }
+        format.turbo_stream
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.turbo_stream
+      end
     end
   end
 
@@ -27,9 +33,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to users_path, notice: 'User successfully updated.'
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: 'User successfully updated.' }
+        format.turbo_stream
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.turbo_stream
+      end
     end
   end
 
@@ -42,6 +54,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     users_path # Redirect to the users index after updating
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path # Redirect to login page after logout
   end
 
   private
