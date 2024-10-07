@@ -31,8 +31,13 @@
       </div>
     </nav>
 
-    <div class="container mb-5">
-      <p class="alert"><%= alert %></p>
+    <div class="container mt-5 mb-5">
+      <% if notice %>
+        <div class="text-success mt-5 mb-5 fw-medium"><%= notice %></div>
+      <% elsif alert %>
+        <div class="text-danger mt-5 mb-5 fw-medium"><%= alert %></div>
+      <% end %>
+
       <%= yield %>
     </div>
 
