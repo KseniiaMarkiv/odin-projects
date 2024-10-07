@@ -1,0 +1,18 @@
+<!-- app/views/layouts/_navbar.html.erb -->
+<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+  <div class="bg-dark p-4">
+    <h5 class="text-body-emphasis h4">Collapsed content</h5>
+    <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid m-1">
+    <button class="navbar-toggler border-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex">
+      <%= link_to "Login", user_session_path, class: "btn btn-outline-light me-2" %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
+    </div>
+  </div>
+</nav>
