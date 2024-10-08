@@ -3,14 +3,25 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="my-4 field">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+    <% resource.errors.full_messages_for(:email).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: "btn btn-link btn-sm font-monospace mb-3 ps-0" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class="actions d-flex align-items-center">
+  <% links = render("users/shared/links").split("\n") %>
+  <% links.each_with_index do |link, index| %>
+    <%= link.html_safe %>
+    <% if index < links.size - 2 %>
+      <span class="me-3">|</span>
+    <% end %>
+  <% end %>
+</div>
