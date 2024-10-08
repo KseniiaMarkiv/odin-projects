@@ -11,8 +11,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="d-flex">
-      <%= link_to "Login", user_session_path, class: "btn btn-outline-light me-2" %>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
+      <% if user_signed_in? %>
+        <span class="navbar-text text-light me-5 font-monospace">
+          <%= time_based_greeting(current_user) %>
+        </span>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
+      <% else %>
+        <%= link_to "Login", user_session_path, class: "btn btn-outline-light me-2" %>
+      <% end %>
     </div>
   </div>
 </nav>
