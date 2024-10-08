@@ -11,4 +11,6 @@
   <% end %>
 </div>
 
-<%= link_to "New user", new_user_registration_path, class: "btn btn-success btn-sm" %>
+<% unless user_signed_in? %>
+  <%= link_to "New user", new_user_registration_path, class: "btn btn-success btn-sm" %>
+<% end %>

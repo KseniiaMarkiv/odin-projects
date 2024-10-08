@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user! # Add this line
   before_action :set_user, only: %i[ show ]
 
   # GET /users or /users.json

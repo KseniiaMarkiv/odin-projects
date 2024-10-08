@@ -4,22 +4,34 @@
   <%= render "users/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <div class="my-4 field">
+    <%= f.label :password, "New password", class: "form-label" %>
+    <%= f.password_field :password, class: "form-control", autofocus: true, autocomplete: "new-password" %>
+    <% resource.errors.full_messages_for(:password).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="mb-3 field">
+    <%= f.label :password_confirmation, "Confirm new password", class: "form-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+    <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
   </div>
+
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "Change my password", class: "btn btn-outline-primary btn-sm mb-2" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class="actions d-flex align-items-center">
+  <% links = render("users/shared/links").split("\n") %>
+  <% links.each_with_index do |link, index| %>
+    <%= link.html_safe %>
+    <% if index < links.size - 2 %>
+      <span class="me-3">|</span>
+    <% end %>
+  <% end %>
+</div>
