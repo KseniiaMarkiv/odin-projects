@@ -1,6 +1,7 @@
-<div id="<%= dom_id @post %>" class="card mb-3 text-center">
+<div id="<%= dom_id @post %>" class="card mb-3 text-center pb-5">
+
   <div class="card-header px-0">
-    <ul class="nav nav-tabs card-header-tabs px-4 mx-0">
+    <ul class="nav nav-tabs card-header-tabs px-5 mx-0 pt-4">
       <li class="nav-item">
         <%= link_to "Edit this post", edit_post_path(@post), class: "nav-link active", ariaCurrent: "true" %>
       </li>
@@ -9,8 +10,9 @@
       </li>
     </ul>
   </div>
-  <div class="card-body px-4">
-    <h3 class="card-title mb-5">
+
+  <div class="card-body px-5">
+    <h3 class="card-title my-5">
       <%= @post.title %>
     </h3>
     <p class="card-text text-justify">
@@ -20,9 +22,9 @@
       <span class="text-start">
         <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
       </span> 
-      <span class="font-monospace text-secondary">
-        User post name
-      </span>
+      <figcaption class="font-monospace blockquote-footer m-0">
+        written by User post name
+      </figcaption>
     </div>
 
   </div>

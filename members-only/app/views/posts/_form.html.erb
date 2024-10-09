@@ -4,11 +4,17 @@
   <div class="form-floating mb-3">
     <%= form.text_field :title, class: "form-control", placeholder: "Leave a title of post here", id: "floatingInput" %>
     <%= form.label :title, "Title post here", for: "floatingInput" %>
+    <% post.errors.full_messages_for(:title).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div class="form-floating mb-3">
     <%= form.text_area :body, class: "form-control", placeholder: "Leave a post here", id: "floatingTextarea" %>
     <%= form.label :body, "Body post here", for: "floatingTextarea" %>
+    <% post.errors.full_messages_for(:body).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
   </div>
   
   <div class="mt-5">
