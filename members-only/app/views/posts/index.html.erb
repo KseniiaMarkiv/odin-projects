@@ -1,12 +1,15 @@
 <h1 class="mb-5">Posts</h1>
 
-<div id="posts">
+<div id="posts" class="row">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div class="col-md-4">
+      <%= render post %>
+      <p>
+        <%= link_to "Show this post", post, class: "btn btn-primary btn-sm" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path, class: "btn btn-primary btn-sm" %>
+<%= link_to "New post", new_post_path, class: "btn btn-success btn-sm" %>
+

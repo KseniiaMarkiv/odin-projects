@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      # flash[:notice] = 'Post was successfully created.'
       respond_with(@post)
     else
       render :new
@@ -33,8 +32,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    # @post.update(post_params)
-    # respond_with(@post)
     if @post.user == current_user
       @post.update(post_params)
       respond_with(@post)
@@ -44,8 +41,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    # @post.destroy!
-    # respond_with(@post)
     if @post.user == current_user
       @post.destroy!
       respond_with(@post)

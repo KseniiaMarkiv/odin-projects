@@ -1,8 +1,29 @@
-<%= render @post %>
+<div id="<%= dom_id @post %>" class="card mb-3 text-center">
+  <div class="card-header px-0">
+    <ul class="nav nav-tabs card-header-tabs px-4 mx-0">
+      <li class="nav-item">
+        <%= link_to "Edit this post", edit_post_path(@post), class: "nav-link active", ariaCurrent: "true" %>
+      </li>
+      <li class="nav-item">
+        <%= button_to "Destroy this post", @post, method: :delete, class: "nav-link text-danger" %>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body px-4">
+    <h3 class="card-title mb-5">
+      <%= @post.title %>
+    </h3>
+    <p class="card-text text-justify">
+      <%= @post.body %>
+    </p>
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <span class="text-start">
+        <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+      </span> 
+      <span class="font-monospace text-secondary">
+        User post name
+      </span>
+    </div>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  </div>
 </div>

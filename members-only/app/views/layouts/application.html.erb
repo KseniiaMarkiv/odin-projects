@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="<%= controller_name == 'posts' ? 'background-color: #f4f2ee;' : 'background-color: white;' %>">
 
     <!-- Render the navbar partial -->
     <%= render 'layouts/navbar' %>
