@@ -1,7 +1,9 @@
 <%= render @user %>
 
-<div class="d-flex gap-2 mt-3">
+<div class="d-flex gap-2 my-3">
   <%= link_to "Edit this user", edit_user_registration_path, class: "btn btn-warning btn-sm" %>
   <%= link_to "Back to users", users_path, class: "btn btn-secondary btn-sm" %>
   <%= button_to "Destroy this user", user_registration_path, method: :delete, class: "btn btn-danger btn-sm" %>
 </div>
+
+<div><%= render 'layouts/accordion', posts: @posts %></div>

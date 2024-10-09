@@ -17,5 +17,7 @@
 
 <div class="d-flex gap-2 mt-3">
   <%= link_to "Look at posts", posts_path, class: "btn btn-outline-primary" %>
-  <%= link_to "Look at my posts", user_posts_path(current_user), class: "btn btn-outline-info" %>
+  <% if current_user %>
+    <%= link_to "Look at my posts", user_posts_path(current_user), class: "btn btn-outline-info" %>
+  <% end %>
 </div>

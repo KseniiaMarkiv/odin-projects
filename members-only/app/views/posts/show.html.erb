@@ -1,35 +1,38 @@
-<div id="<%= dom_id @post %>" class="card mb-3 text-center pb-5">
+<div id="<%= dom_id @post %>">
 
-  <div class="card-header px-0">
-    <ul class="nav nav-tabs card-header-tabs px-5 mx-0 pt-4">
-      <li class="nav-item">
-        <%= link_to "Edit this post", edit_post_path(@post), class: "nav-link active", ariaCurrent: "true" %>
-      </li>
-      <li class="nav-item">
-        <%= button_to "Destroy this post", @post, method: :delete, class: "nav-link text-danger" %>
-      </li>
-    </ul>
-  </div>
-
-  <div class="card-body px-5">
-    <h3 class="card-title my-5">
-      <%= @post.title %>
-    </h3>
-    <p class="card-text text-justify">
-      <%= @post.body %>
-    </p>
-    <div class="d-flex flex-wrap justify-content-between align-items-center">
-      <span class="text-start">
-        <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
-      </span> 
-      <% if user_signed_in? %>
-        <figcaption class="font-monospace blockquote-footer m-0">
-          written by <%= @post.user.username %>
-        </figcaption>
-      <% else %>
-        <em class="text-primary">Please sign in to see the author of this post</em> 
-      <% end %>
+  <div class="card mb-3 text-center pb-5">
+    <div class="card-header px-0">
+      <ul class="nav nav-tabs card-header-tabs px-5 mx-0 pt-4">
+        <li class="nav-item">
+          <%= link_to "Edit this post", edit_post_path(@post), class: "nav-link active", ariaCurrent: "true" %>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Destroy this post", @post, method: :delete, class: "nav-link text-danger" %>
+        </li>
+      </ul>
     </div>
 
+    <div class="card-body px-5">
+      <h3 class="card-title my-5">
+        <%= @post.title %>
+      </h3>
+      <p class="card-text text-justify">
+        <%= @post.body %>
+      </p>
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <span class="text-start">
+          <%= link_to "Back to posts", posts_path, class: "btn btn-secondary btn-sm" %>
+        </span> 
+        <% if user_signed_in? %>
+          <figcaption class="font-monospace blockquote-footer m-0">
+            written by <%= @post.user.username %>
+          </figcaption>
+        <% else %>
+          <em class="text-primary">Please sign in to see the author of this post</em> 
+        <% end %>
+      </div>
+
+    </div>
   </div>
+
 </div>

@@ -63,9 +63,3 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body)
     end
 end
-
-
-users_with_posts = User.joins(:posts).distinct
-users_with_posts.each do |user|
-  puts "#{user.username} has posts."
-end
