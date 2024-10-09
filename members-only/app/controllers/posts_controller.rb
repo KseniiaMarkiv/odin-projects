@@ -5,8 +5,13 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @posts = Post.all
-    respond_with(@posts)
+    if params[:user_id]  # Check if the request is for a specific user's posts
+      @user = User.find(params[:user_id])
+      @posts = @user.posts  # Fetch posts for that user
+    else
+      @posts = Post.all  # Fetch all posts if no user is specified
+      respond_with(@posts)
+    end
   end
 
   def show
@@ -57,4 +62,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body)
     end
+end
+
+
+users_with_posts = User.joins(:posts).distinct
+users_with_posts.each do |user|
+  puts "#{user.username} has posts."
 end

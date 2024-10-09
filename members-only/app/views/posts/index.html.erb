@@ -11,5 +11,7 @@
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path, class: "btn btn-success btn-sm" %>
-
+<div class="d-flex gap-2 mt-3">
+  <%= link_to "New post", new_post_path, class: "btn btn-success btn-sm" %>
+  <%= link_to "Back to users", users_path, class: "btn btn-secondary btn-sm" %>
+</div>
