@@ -19,13 +19,13 @@ class PostsController < ApplicationController
   end
 
   def edit
-    redirect_to posts_path, alert: 'You are not authorized to edit this post.' unless @post.user == current_user
+    redirect_to posts_path, alert: "You can't edit this post, you didn't create it." unless @post.user == current_user
   end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      respond_with(@post)
+      redirect_to root_path, notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       @post.update(post_params)
       respond_with(@post)
     else
-      redirect_to posts_path, alert: 'You are not authorized to update this post.'
+      redirect_to posts_path, alert: "You can't update this post, you didn't create it."
     end
   end
 
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
       @post.destroy!
       respond_with(@post)
     else
-      redirect_to posts_path, alert: 'You are not authorized to delete this post.'
+      redirect_to posts_path, alert: "You can't delete this post, you didn't create it."
     end
   end
 
