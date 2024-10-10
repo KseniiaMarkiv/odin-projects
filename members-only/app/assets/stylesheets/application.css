@@ -16,3 +16,6 @@
 .text-justify {
   text-align: justify;
 }
+#inputGroupText {
+ background-color: #fff;
+}
