@@ -6,4 +6,8 @@
   <%= button_to "Destroy this user", user_registration_path, method: :delete, class: "btn btn-danger btn-sm" %>
 </div>
 
-<div><%= render 'layouts/accordion', posts: @posts %></div>
+<% if @posts.any? %>
+  <div><%= render 'layouts/accordion', posts: @posts %></div>
+<% else %>
+  <p class="font-monospace mt-5 text-muted">This author hasn't written any posts yet.</p>
+<% end %>
