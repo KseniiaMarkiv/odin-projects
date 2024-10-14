@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   resources :posts # Standalone route for all posts
 
+  get 'users_with_posts', to: 'users#display_users', as: 'users_with_posts'
+
   root "users#index"
 end

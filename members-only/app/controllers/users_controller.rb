@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def display_users
+    @users_with_posts = User.joins(:posts).distinct
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -1,0 +1,25 @@
+<!-- app/views/users/display_users.html.erb -->
+<h1>Users with Posts</h1>
+
+<div class="row">
+  <% @users_with_posts.each do |user| %>
+    <div class="col-md-4">
+      <%= render user %>
+      <div class="d-flex gap-2 mt-3">
+        <p>
+          <%= link_to "Show this user", user, class: "btn btn-primary btn-sm" %>
+        </p>
+        <p>
+          <%= link_to "Look at #{user.username}'s posts", user_posts_path(user, return_path: request.path), class: "btn btn-secondary btn-sm" %>
+        </p> 
+      </div>      
+    </div>
+  <% end %>
+</div>
+
+<div class="d-flex gap-2 mt-3">
+  <%= link_to "Back to users", users_path, class: "btn btn-secondary" %>
+  <% if current_user %>
+    <%= link_to "Look at my posts", user_posts_path(current_user), class: "btn btn-outline-info" %>
+  <% end %>
+</div>
