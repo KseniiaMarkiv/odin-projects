@@ -13,7 +13,12 @@
 
   <div class="mb-3 field">
     <%= f.label :password, class: "form-label" %>
-    <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+    <div class="input-group">
+      <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+      <span id="inputGroupText" class="input-group-text">
+        <i id="togglePassword" class="bi bi-eye-slash eye_icon"></i>
+      </span>
+    </div>
     <% resource.errors.full_messages_for(:password).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>

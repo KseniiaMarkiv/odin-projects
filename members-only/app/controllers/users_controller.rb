@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @posts = @user.posts
+  end
+
+  def display_users
+    @users_with_posts = User.joins(:posts).distinct
   end
 
   private

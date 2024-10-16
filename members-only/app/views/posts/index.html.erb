@@ -1,0 +1,22 @@
+<h1 class="mb-5">Posts</h1>
+
+<% if @posts.any? %>
+  <div id="posts" class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-4">
+        <%= render post %>
+        <p>
+          <%= link_to "Show this post", post, class: "btn btn-primary btn-sm" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="font-monospace mt-5 text-muted">This author hasn't written any posts yet.</p>
+<% end %>
+
+
+<div class="d-flex gap-2 mt-3">
+  <%= link_to "New post", new_post_path, class: "btn btn-success btn-sm" %>
+  <%= link_to "Back to users", params[:return_path] || users_path, class: "btn btn-secondary btn-sm" %>
+</div>

@@ -5,7 +5,13 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do 
+    resources :posts, only: [:index]  # Nested route for user's posts
+  end
+
+  resources :posts # Standalone route for all posts
+
+  get 'users_with_posts', to: 'users#display_users', as: 'users_with_posts'
 
   root "users#index"
 end

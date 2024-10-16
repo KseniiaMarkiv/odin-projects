@@ -1,16 +1,29 @@
-<h1>Users</h1>
+<h1 class="mb-5">Users</h1>
 
 <div id="users" class="row">
   <% @users.each do |user| %>
     <div class="col-md-4">
       <%= render user %>
-      <p>
-        <%= link_to "Show this user", user, class: "btn btn-primary btn-sm" %>
-      </p>
+      <div class="d-flex gap-2 mt-3">
+        <p>
+          <%= link_to "Show this user", user, class: "btn btn-primary btn-sm" %>
+        </p>
+        <p>
+          <%= link_to "Look at #{user.username}'s posts", user_posts_path(user), class: "btn btn-secondary btn-sm" %>
+        </p> 
+      </div>      
     </div>
   <% end %>
 </div>
 
 <% unless user_signed_in? %>
-  <%= link_to "New user", new_user_registration_path, class: "btn btn-success btn-sm" %>
+  <%= link_to "New user", new_user_registration_path, class: "btn btn-success mt-3" %>
 <% end %>
+
+<div class="d-flex gap-2 mt-3">
+  <%= link_to "Look at posts", posts_path, class: "btn btn-outline-primary" %>
+  <% if current_user %>
+    <%= link_to "Look at my posts", user_posts_path(current_user), class: "btn btn-outline-info" %>
+  <% end %>
+  <%= link_to "Users who have posts", users_with_posts_path, class: "btn btn-outline-secondary"   %>
+</div>

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/, message: "must be in the format 'string@string.string'" }
   validate :password_complexity
 
+  has_many :posts, dependent: :destroy
+
   private
 
   def password_complexity

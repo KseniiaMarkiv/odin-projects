@@ -1,0 +1,5 @@
+<% if @post.errors.any? %>
+  <div class="my-3 text-danger font-monospace fs-6">
+    <p><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</p>
+  </div>
+<% end %>
