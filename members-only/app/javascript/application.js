@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails"
 import "stripe"
 import "controllers"
+import "trix"
+import "@rails/actiontext"

@@ -9,14 +9,13 @@
     <% end %>
   </div>
 
-  <div class="form-floating mb-3">
-    <%= form.text_area :body, class: "form-control", placeholder: "Leave a post here", id: "floatingTextarea" %>
-    <%= form.label :body, "Body post here", for: "floatingTextarea" %>
+  <div class="mb-3">
+    <%= form.rich_text_area :body, class: "form-control", placeholder: "Leave a post here", id: "FormControlTextarea" %>
     <% post.errors.full_messages_for(:body).each do |message| %>
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
-  
+
   <div class="mt-5">
     <%= form.submit "Create Post", class: "btn btn-primary btn-sm" %>
   </div>
