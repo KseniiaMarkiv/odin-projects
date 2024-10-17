@@ -2,7 +2,7 @@
 
 ## What Projects Are Here
 
-This repository contains Ruby on Rails projects completed as part of [The Odin Project](https://www.theodinproject.com/). Each project builds upon fundamental Rails concepts, from basic CRUD operations to user authentication and deployment:
+This repository contains Ruby on Rails projects completed as part of [The Odin Projects](https://www.theodinproject.com/). Each project builds upon fundamental Rails concepts, from basic CRUD operations to user authentication and deployment:
 
 1. **Blog-app**: A blogging platform where users can create, edit, and manage posts. This project focuses on understanding the Rails MVC architecture, setting up routes, and using ActiveRecord to manage database interactions. [Project details](https://www.theodinproject.com/lessons/ruby-on-rails-blog-app)
 
@@ -12,3 +12,7 @@ This repository contains Ruby on Rails projects completed as part of [The Odin P
 
 4. **Members-only**: A community site where only signed-in members can create, edit, and manage posts. This project focuses on user authentication with sessions, implementing authorization rules, and managing user roles, covering more advanced topics like secure password management. [Project details](https://www.theodinproject.com/lessons/ruby-on-rails-members-only)
 
+> [!IMPORTANT]  
+> The `auth-branch` branch was for implementing authentication by Device with Responders gems, and the `post` branch was for implementing a Post MVC with associations.
+
+> Branches belong to `members-only` app

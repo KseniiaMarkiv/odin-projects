@@ -1,5 +1,9 @@
 # Rails Project: Getting Started
 
+> [!NOTE]  
+> You can find the description of the assignment by [link](https://www.theodinproject.com/lessons/ruby-on-rails-blog-app)
+
+
 ## Introduction
 
 This project follows the **Ruby on Rails Guides: Getting Started** tutorial up to section 9.2. It aims to provide hands-on experience building a real Rails application. The project introduces you to the basics of Rails, including the Model-View-Controller (MVC) architecture and commonly used commands and generators.
@@ -64,8 +68,8 @@ Before starting this project, make sure you have the following installed:
 
 1. Clone this repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_name>
+   git clone https://github.com/KseniiaMarkiv/odin-projects.git
+   cd blog-app
    ```
 
 2. Install the required gems:
@@ -97,6 +101,10 @@ Before starting this project, make sure you have the following installed:
 
 - [Ruby on Rails Getting Started Guide](https://guides.rubyonrails.org/getting_started.html)
 - [Rails Documentation](https://guides.rubyonrails.org/)
+
+## Acknowledgements
+
+This project is part of [The Odin Project](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails) curriculum.
 
 ## License
 
