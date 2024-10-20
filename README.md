@@ -14,5 +14,7 @@ This repository contains Ruby on Rails projects completed as part of [The Odin P
 
 > [!IMPORTANT]  
 > The `auth-branch` branch was for implementing authentication by Device with Responders gems, and the `post` branch was for implementing a Post MVC with associations.
-
 > Branches belong to `members-only` app
+
+> [!IMPORTANT]  
+> The `postgres-check` branch was created for checking "Installing PostgreSQL" in the Odin Project's guide. This branch belong to `postgres-app` app
