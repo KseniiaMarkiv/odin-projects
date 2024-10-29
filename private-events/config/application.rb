@@ -23,5 +23,9 @@ module PrivateEvents
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # config/application.rb
+    config.time_zone = "Eastern Time (US & Canada)"
+
   end
 end
