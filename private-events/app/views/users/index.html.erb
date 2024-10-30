@@ -1,0 +1,29 @@
+<h1 class="ui header">Users</h1>
+
+<div class="ui items">
+  <% @users.each do |user| %>
+    <div class="item">
+      <div class="image">
+        <%= image_tag "avatar/large/image.png" %>
+      </div>
+      <div class="content mt-1">
+        <a class="header"><%= user.username %></a>
+        <div class="description">
+          <p><%= user.email %></p>
+        </div>
+        <div class="extra">
+          <%= link_to "Show this user", user, class: "ui primary mini button" %>
+        </div>
+        <div class="meta mt-2">
+          <span>- <%= user.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %> create account</span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% unless user_signed_in? %>
+  <div class="extra">
+    <%= link_to "New user", new_user_registration_path, class: "ui green button" %>
+  </div>
+<% end %>

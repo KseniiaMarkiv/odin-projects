@@ -1,0 +1,141 @@
+// Define the spacer sizes
+$spacer: 1rem; // Base size, adjust as needed
+
+// Define the breakpoints
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// Generate margin classes
+@mixin margin-utilities {
+  // Margin utilities for all breakpoints
+  @for $i from 0 through 5 {
+    .m-#{$i} { margin: $i * $spacer * 1 !important; }
+    .mt-#{$i} { margin-top: $i * $spacer * 1 !important; }
+    .mb-#{$i} { margin-bottom: $i * $spacer * 1 !important; }
+    .ms-#{$i} { margin-left: $i * $spacer * 1 !important; }
+    .me-#{$i} { margin-right: $i * $spacer * 1 !important; }
+    .mx-#{$i} { margin-left: $i * $spacer * 1 !important; margin-right: $i * $spacer * 1 !important; }
+    .my-#{$i} { margin-top: $i * $spacer * 1 !important; margin-bottom: $i * $spacer * 1 !important; }
+    .m { margin: $i * $spacer * 1 !important; } // For all sides
+  }
+
+  // Margin utilities for specific breakpoints
+  @each $breakpoint, $value in $breakpoints {
+    @for $i from 0 through 5 {
+      .m#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin: $i * $spacer * 1 !important;
+        }
+      }
+      .mt#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-top: $i * $spacer * 1 !important;
+        }
+      }
+      .mb#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-bottom: $i * $spacer * 1 !important;
+        }
+      }
+      .ms#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-left: $i * $spacer * 1 !important;
+        }
+      }
+      .me#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-right: $i * $spacer * 1 !important;
+        }
+      }
+      .mx#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-left: $i * $spacer * 1 !important;
+          margin-right: $i * $spacer * 1 !important;
+        }
+      }
+      .my#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          margin-top: $i * $spacer * 1 !important;
+          margin-bottom: $i * $spacer * 1 !important;
+        }
+      }
+      .m#{$breakpoint} {
+        @media (min-width: $value) {
+          margin: $i * $spacer * 1 !important;
+        }
+      }
+    }
+  }
+}
+
+// Generate padding classes
+@mixin padding-utilities {
+  // Padding utilities for all breakpoints
+  @for $i from 0 through 5 {
+    .p-#{$i} { padding: $i * $spacer * 1 !important; }
+    .pt-#{$i} { padding-top: $i * $spacer * 1 !important; }
+    .pb-#{$i} { padding-bottom: $i * $spacer * 1 !important; }
+    .ps-#{$i} { padding-left: $i * $spacer * 1 !important; }
+    .pe-#{$i} { padding-right: $i * $spacer * 1 !important; }
+    .px-#{$i} { padding-left: $i * $spacer * 1 !important; padding-right: $i * $spacer * 1 !important; }
+    .py-#{$i} { padding-top: $i * $spacer * 1 !important; padding-bottom: $i * $spacer * 1 !important; }
+    .p { padding: $i * $spacer * 1 !important; } // For all sides
+  }
+
+  // Padding utilities for specific breakpoints
+  @each $breakpoint, $value in $breakpoints {
+    @for $i from 0 through 5 {
+      .p#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding: $i * $spacer * 1 !important;
+        }
+      }
+      .pt#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-top: $i * $spacer * 1 !important;
+        }
+      }
+      .pb#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-bottom: $i * $spacer * 1 !important;
+        }
+      }
+      .ps#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-left: $i * $spacer * 1 !important;
+        }
+      }
+      .pe#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-right: $i * $spacer * 1 !important;
+        }
+      }
+      .px#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-left: $i * $spacer * 1 !important;
+          padding-right: $i * $spacer * 1 !important;
+        }
+      }
+      .py#{$breakpoint}-#{$i} {
+        @media (min-width: $value) {
+          padding-top: $i * $spacer * 1 !important;
+          padding-bottom: $i * $spacer * 1 !important;
+        }
+      }
+      .p#{$breakpoint} {
+        @media (min-width: $value) {
+          padding: $i * $spacer * 1 !important;
+        }
+      }
+    }
+  }
+}
+
+// Include the utility mixins
+@include margin-utilities;
+@include padding-utilities;
