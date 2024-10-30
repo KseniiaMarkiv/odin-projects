@@ -139,3 +139,28 @@ $breakpoints: (
 // Include the utility mixins
 @include margin-utilities;
 @include padding-utilities;
+
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+}
