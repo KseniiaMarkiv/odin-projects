@@ -13,12 +13,12 @@ end
 
 # Sample users data
 users_data = [
-  { email: "john.doe@example.com", username: "johndoe", password: "password123" },
-  { email: "jane.smith@example.com", username: "janesmith", password: "password123" },
-  { email: "alice.wonderland@example.com", username: "alicew", password: "password123" },
-  { email: "bob.builder@example.com", username: "bobbuilder", password: "password123" },
-  { email: "charlie.brown@example.com", username: "charlieb", password: "password123" },
-  { email: "daisy.duck@example.com", username: "daisyduck", password: "password123" }
+  { email: "john.doe@example.com", username: "johndoe", password: "password123@B" },
+  { email: "jane.smith@example.com", username: "janesmith", password: "password123@B" },
+  { email: "alice.wonderland@example.com", username: "alicew", password: "password123@B" },
+  { email: "bob.builder@example.com", username: "bobbuilder", password: "password123@B" },
+  { email: "charlie.brown@example.com", username: "charlieb", password: "password123@B" },
+  { email: "daisy.duck@example.com", username: "daisyduck", password: "password123@B" }
 ]
 
 # Create each user
