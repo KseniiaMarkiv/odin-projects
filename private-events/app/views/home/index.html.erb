@@ -1,14 +1,36 @@
+<% avatars = ["avatar/small/jenny.jpg", "avatar/small/christian.jpg", "avatar/small/stevie.jpg", "avatar/small/matt.jpg"] %>
+
 <div class="ui container">
   <h1 class="ui header">Home page</h1>
 
-  <div class="ui list">
-    <% @users.each do |user| %>
-      <div class="item">
-        <div class="header"><%= user.email %></div>
-        <div class="description">
-          - <%= user.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
-        </div>
+<h3 class="ui header">Section One: Usernames</h3>
+<div class="ui section divider"></div>
+
+
+<div class="ui ordered horizontal list">
+  <% @users.each do |user| %>
+    <div class="item">
+      <%= image_tag cycle(*avatars), class: "ui avatar image" %>
+      <div class="content">
+        <div class="header"><%= user.username %></div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
+
+
+<h3 class="ui header">Section Two: User Details</h3>
+<div class="ui section divider"></div>
+
+<div class="ui ordered list">
+  <% @users.each do |user| %>
+    <div class="item">
+      <div class="header"><%= user.email %></div>
+      <div class="description">
+        - <%= user.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

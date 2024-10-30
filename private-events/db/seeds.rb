@@ -1,9 +1,29 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# Check if the database adapter is PostgreSQL
+if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
+  # Clear all users and reset the primary key sequence
+  User.destroy_all
+  ActiveRecord::Base.connection.reset_pk_sequence!('users')  # For PostgreSQL
+
+  puts "PostgreSQL database detected: Cleared all users and reset primary key sequence."
+else
+  puts "Non-PostgreSQL database detected: Skipping user clearance and primary key reset."
+end
+
+# Sample users data
+users_data = [
+  { email: "john.doe@example.com", username: "johndoe", password: "password123" },
+  { email: "jane.smith@example.com", username: "janesmith", password: "password123" },
+  { email: "alice.wonderland@example.com", username: "alicew", password: "password123" },
+  { email: "bob.builder@example.com", username: "bobbuilder", password: "password123" },
+  { email: "charlie.brown@example.com", username: "charlieb", password: "password123" },
+  { email: "daisy.duck@example.com", username: "daisyduck", password: "password123" }
+]
+
+# Create each user
+users_data.each do |user_data|
+  User.create!(user_data)
+end
+
+puts "Created #{User.count} users."
