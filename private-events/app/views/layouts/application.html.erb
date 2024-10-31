@@ -11,8 +11,15 @@
   </head>
 
   <body>
-    <div class="ui container my-3">
-      <%= yield %>
+    <!-- Navbar (full-width) -->
+    <%= render 'layouts/navbar' %>
+
+    <div class="ui main container grid">
+      <div class="column">
+        <div class="ui container my-3">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
