@@ -5,3 +5,11 @@ body {
   display: flex;
   height: fit-content;
 }
+
+.custom-dropdown {
+  width: auto; /* Automatically adjusts to the content width */
+  min-width: 150px; /* Set a minimum width if needed */
+}
+.custom-dropdown .menu {
+  min-width: 150px; /* Match this to the desired width */
+}

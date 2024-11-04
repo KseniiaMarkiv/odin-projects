@@ -1,14 +1,12 @@
 <div class="ui top fixed menu px-3">
-  <a class="active item">
-    Home
-  </a>
+  <%= link_to "Home", root_path, class: "active item" %>
   <a class="item">
     Messages
   </a>
   <div class="right menu">
     <% if user_signed_in? %>
       <div class="ui dropdown item custom-dropdown">
-        <span class="text"><%= current_user.username %></span> <i class="dropdown icon"></i>
+        <span class="text space-mono-bold"><%= current_user.username %></span> <i class="dropdown icon"></i>
         <div class="menu">
           <div class="header">Categories</div>
           <div class="item">
