@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "jquery"
 import "jquery_check"
+import "semantic-ui"
 
 import "controllers"
