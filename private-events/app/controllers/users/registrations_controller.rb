@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :html, :turbo_stream
-
+  
   protected
 
   def after_sign_up_path_for(resource)
