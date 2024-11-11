@@ -2,9 +2,10 @@
 
 <%= render @event %>
 
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
 
-  <%= button_to "Destroy this event", @event, method: :delete %>
-</div>
+  <div class="ui buttons">
+    <%= link_to "Edit this event", edit_event_path(@event), class: "ui positive button" %> |
+    <div class="or"></div>
+    <%= link_to "Back to events", events_path, class: "ui button" %>
+  </div>
+  <%= button_to "Destroy this event", @event, method: :delete, class: "negative ui button my-1" %>
