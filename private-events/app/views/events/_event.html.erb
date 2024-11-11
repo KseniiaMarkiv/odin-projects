@@ -10,6 +10,13 @@
   </p>
 
   <p>
+    <strong>Location:</strong>
+   <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
+    <%= content_tag :i, "", class: "teal video icon ms-1" %>
+    <%= event.location %>
+  </p>
+
+  <p>
     <strong>Description:</strong>
     <%= event.description %>
   </p>
