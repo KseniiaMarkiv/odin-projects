@@ -1,33 +1,34 @@
 <% avatars = ["avatar/small/jenny.jpg", "avatar/small/christian.jpg", "avatar/small/stevie.jpg", "avatar/small/matt.jpg"] %>
 
-  <h1 class="ui header">Home page</h1>
-  <div class="ui hidden section divider"></div>
-  <h2 class="ui header">Section One: Usernames</h2>
+<h1 class="ui header">Home page</h1>
+<div class="ui hidden section divider"></div>
+<h2 class="ui header">Section One: Usernames</h2>
 
 
-  <div class="ui ordered horizontal list">
-    <% @users.each do |user| %>
-      <div class="item">
-        <%= image_tag cycle(*avatars), class: "ui avatar image" %>
-        <div class="content">
-          <div class="header"><%= user.username %></div>
-        </div>
+<div class="ui ordered horizontal list">
+  <% @users.each do |user| %>
+    <div class="item">
+      <%= image_tag cycle(*avatars), class: "ui avatar image" %>
+      <div class="content">
+        <div class="header"><%= user.username %></div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 
-  <div class="ui section divider"></div>
-  <div class="ui hidden section divider"></div>
+<div class="ui section divider"></div>
+<div class="ui hidden section divider"></div>
 
-  <h2 class="ui header">Section Two: User Details</h2>
+<h2 class="ui header">Section Two: User Details</h2>
 
-  <div class="ui ordered list">
-    <% @users.each do |user| %>
-      <div class="item">
-        <div class="header"><%= user.email %></div>
-        <div class="description">
-          - <%= user.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
-        </div>
+<div class="ui ordered list">
+  <% @users.each do |user| %>
+    <div class="item">
+      <div class="header"><%= user.email %></div>
+      <div class="description">
+        - <%= user.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
+
