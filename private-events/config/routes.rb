@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:index, :show]
+  get "home", to: "home#index"
 
   # Defines the root path route ("/")
-  root "home#index"
+  root "events#index"
 end

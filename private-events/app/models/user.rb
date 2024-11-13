@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 3 }
   validate :password_complexity
 
+  has_many :events, foreign_key: 'creator_id', class_name: 'Event'
+
   private
 
   def password_complexity
