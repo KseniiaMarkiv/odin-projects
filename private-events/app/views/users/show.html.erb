@@ -1,9 +1,8 @@
 <%= render @user %>
 
-<div class="ui grid m-0">
-  <div class="row">
-    <%= link_to "Edit this user", edit_user_registration_path, class: "ui yellow button small" %>
-    <%= link_to "Back to users", users_path, class: "ui secondary button small" %>
-    <%= button_to "Destroy this user", user_registration_path, method: :delete, class: "ui red button small" %>
-  </div>
+<div class="ui buttons">
+  <%= link_to "Edit this user", edit_user_registration_path, class: "ui positive button" %> |
+  <div class="or"></div>
+  <%= link_to "Back to users", users_path, class: "ui button" %>
 </div>
+<%= button_to "Destroy this user", @user_registration_path, method: :delete, class: "negative ui button my-1" %>
