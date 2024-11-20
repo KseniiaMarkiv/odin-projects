@@ -1,8 +1,9 @@
-<%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<h2 class="ui header">Create Event</h2>
 
+<%= form_with(model: event, html: { class: "ui form", "data-turbo" => "false" }) do |form| %>
+  <% if event.errors.any? %>
+    <div class="ui red inverted segment">
+      <h4 class="ui header"> <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h4>
       <ul>
         <% event.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,27 +12,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: "Event Title", autofocus: true %>
+    <% event.errors.full_messages_for(:title).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.datetime_field :date %>
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_field :date, placeholder: "Event Date and Time" %>
+    <% event.errors.full_messages_for(:date).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, placeholder: "Event Location" %>
+    <% event.errors.full_messages_for(:location).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, placeholder: "Event Description", rows: 4 %>
+    <% event.errors.full_messages_for(:description).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <%= form.submit "Create Event", class: "ui primary button" %>
   </div>
 <% end %>
