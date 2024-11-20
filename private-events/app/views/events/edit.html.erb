@@ -4,7 +4,8 @@
 
 <br>
 
-<div>
-  <%= link_to "Show this event", @event %> |
-  <%= link_to "Back to events", events_path %>
+<div class="ui buttons">
+  <%= link_to "Show this event", @event, class: "ui positive button" %> |
+  <div class="or"></div>
+  <%= link_to "Back to events", events_path, class: "ui button" %>
 </div>
