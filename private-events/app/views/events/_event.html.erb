@@ -42,5 +42,9 @@
       <%= event.description %>
     </p>
   </div>
-  
+  <div class="meta my-2">
+    <i class="pencil alternate icon"></i>
+    <span class="ui grey header space-mono-regular events-created">Events Created by <strong><%= event.creator[:username] %></strong></span>
+  </div>
+
 </div>

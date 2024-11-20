@@ -58,3 +58,7 @@
 .event-title {
   font-size: 44px;
 }
+
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6).events-created {
+  font-size: small;
+}

@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5, maximum: 100 } 
   validates :date, presence: true 
   validates :location, presence: true 
-  validates :description, presence: true, length: { minimum: 10 } 
+  validates :description, presence: true, length: { in: 10..3000 }
   
   
   def absent_location
