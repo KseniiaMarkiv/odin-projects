@@ -1,5 +1,5 @@
-<div id="<%= dom_id user %>" class="card mb-3 ms-3">
-  <div class="ui card">
+<div id="<%= dom_id user %>">
+  <div class="ui centered card">
     <div class="image">
       <%= image_tag "avatar/large/image.png" %>
     </div>
@@ -8,4 +8,32 @@
       <%= user.email %>
     </div>
   </div>
+</div>
+
+<!-- Events Created by User -->
+<div class="ui segment">
+
+  <% if @user.events.any? %>
+    <div class="ui divided items">
+      <% @user.events.each do |event| %>
+        <h2><a class="header"><%= link_to event.title, event_path(event) %></a></h2>
+        <div class="item">
+          <div class="content">
+            <div class="description">
+              <p><%= event.description %></p>
+            </div>
+            <div class="meta">
+              <span><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
+            </div>
+            <h5>Events Created by <%= @user.username %></h5> 
+            <div class="extra">
+              <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p><em>This user hasn't created any events yet.</em></p>
+  <% end %>
 </div>
