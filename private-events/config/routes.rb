@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:index, :show]
+  resources :attendances, only: [:create, :destroy]
+
   get "home", to: "home#index"
 
   # Defines the root path route ("/")

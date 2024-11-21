@@ -14,37 +14,50 @@
     <a class="next" onclick="changeSlide(1)"><%= content_tag :i, "", class: "chevron right icon me-1" %></a>
   </div>
 
-  <h1 class="event-title">
-    <%= event.title %>
-  </h1>
+  <div class="ui grid">
+    <div class="ten wide column">
+      <h1 class="event-title">
+        <%= event.title %>
+      </h1>
 
-  <div class="my-2">
-    <h2>
-      Date and time
-    </h2>
-    <p><%= content_tag :i, "", class: "calendar check outline icon me-1" %><%= event.date.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %></p>
-  </div>
+      <div class="my-2">
+        <h2>
+          Date and time
+        </h2>
+        <p><%= content_tag :i, "", class: "calendar check outline icon me-1" %><%= event.date.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %></p>
+      </div>
 
-  <div class="my-2">
-    <h2>
-    Location
-    </h2>
-      
-    <p>   <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
-      <%= content_tag :i, "", class: "teal video icon" %>
-      <%= event.location %>
-    </p>
-  </div>
+      <div class="my-2">
+        <h2>
+        Location
+        </h2>
+          
+        <p>   <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
+          <%= content_tag :i, "", class: "teal video icon" %>
+          <%= event.location %>
+        </p>
+      </div>
 
-  <div class="my-2">
-    <h2>About this event</h2>
-    <p>
-      <%= event.description %>
-    </p>
-  </div>
-  <div class="meta my-2">
-    <i class="pencil alternate icon"></i>
-    <span class="ui grey header space-mono-regular events-created">Events Created by <strong><%= event.creator[:username] %></strong></span>
+      <div class="my-2">
+        <h2>About this event</h2>
+        <p>
+          <%= event.description %>
+        </p>
+      </div>
+      <div class="meta my-2">
+        <i class="pencil alternate icon"></i>
+        <span class="ui grey header space-mono-regular events-created">Events Created by <strong><%= event.creator[:username] %></strong></span>
+      </div>
+    </div>
+
+    <div class="six wide column">
+      <% if current_user.attended_events.include?(@event) %>
+        <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You have already reserved a ticket for this event!</h4>
+        <%= button_to 'Cancel Ticket', attendance_path(event_id: @event.id), method: :delete, class: 'ui button orange' %>
+      <% else %>
+        <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary mt-5' %>
+      <% end %>
+    </div>
   </div>
 
 </div>
