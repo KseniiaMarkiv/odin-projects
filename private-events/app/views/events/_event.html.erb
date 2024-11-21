@@ -53,24 +53,27 @@
     </div>
 
     <div class="six wide column">
-            <% if current_user.attended_events.include?(@event) %>
-              <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You have already reserved a ticket for this event!</h4>
-                <div class="ui cards">
-                  <div class="card pt-2">
-                    <div class="content">
-                      <%= button_to 'Cancel Ticket', attendance_path(event_id: @event.id), method: :delete, class: 'ui button fluid orange' %>
-                    </div>
-                  </div>
-                </div>
-            <% else %>
-              <div class="ui cards mt-5">
-                  <div class="card">
-                    <div class="content">
-                      <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary fluid mt-5' %>
-                    </div>
-                  </div>
-                </div>
-            <% end %>
+
+      <% if current_user == event.creator %>
+        <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You are the creator of this event!</h4>
+      <% elsif current_user.attended_events.include?(@event) %>
+        <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You have already reserved a ticket for this event!</h4>
+        <div class="ui cards">
+          <div class="card pt-2">
+            <div class="content">
+              <%= button_to 'Cancel Ticket', attendance_path(event_id: @event.id), method: :delete, class: 'ui button fluid orange' %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="ui cards mt-5">
+          <div class="card">
+            <div class="content">
+              <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary fluid mt-5' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
       <% if @event.attendees.any? %>
         <div class="mt-5">
@@ -88,8 +91,8 @@
               <% end %>
             </dl>
         </div>
-      <% else %>
-        <h5 class="ui teal header my-5"><i class="calendar check outline icon"></i> Hurry up, you can become the first attendee</h5>
+      <% elsif current_user != event.creator %>
+        <h5 class="ui blue header my-5"><i class="calendar check outline icon"></i> Hurry up, you can become the first attendee</h5>
       <% end %>
     </div>
   </div>
