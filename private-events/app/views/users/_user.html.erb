@@ -10,32 +10,60 @@
   </div>
 </div>
 
-<!-- Events Created by User -->
 <div class="ui segment">
-
-  <% if @user.events.any? %>
-    <div class="ui divided items">
-      <% @user.events.each do |event| %>
-        <h2><a class="header"><%= link_to event.title, event_path(event) %></a></h2>
-        <div class="item">
-          <div class="content">
-            <div class="description">
-              <p><%= event.description %></p>
+  <div class="ui grid">
+    <!-- Left Column: Events Created by User -->
+    <div class="eight wide column">
+      <h3 class="ui center aligned header grey mt-1">Events Created by <%= @user.username %></h3>
+      <% if @user.events.any? %>
+        <div class="ui divided items">
+          <% @user.events.each do |event| %>
+            <div class="item">
+              <div class="content my-2 px-1">
+                <h2><%= link_to event.title, event_path(event) %></h2>
+                <div class="description justified-text">
+                  <p><%= event.description %></p>
+                </div>
+                <div class="meta">
+                  <span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
+                </div>
+                <div class="extra">
+                  <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
+                </div>
+              </div>
             </div>
-            <div class="meta">
-              <span><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
-            </div>
-            <h5>Events Created by <%= @user.username %></h5> 
-            <div class="extra">
-              <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
-            </div>
-          </div>
+          <% end %>
         </div>
+      <% else %>
+        <h4 class="ui grey inverted header">This user hasn't created any events yet.</h4>
       <% end %>
     </div>
-  <% else %>
-    <p class="space-mono-regular">
-      <h4 class="ui grey inverted header">This user hasn't created any events yet.</h4>
-    </p>
-  <% end %>
+
+    <!-- Right Column: Events Attended by User -->
+    <div class="eight wide column">
+      <h3 class="ui center aligned header grey mt-1">Events Attended by <%= @user.username %></h3>
+      <% if @user.attended_events.any? %>
+        <div class="ui divided items">
+          <% @user.attended_events.each do |event| %>
+            <div class="item">
+              <div class="content my-2 px-1">
+                <h2><%= link_to event.title, event_path(event) %></h2>
+                <div class="description justified-text">
+                  <p><%= event.description %></p>
+                </div>
+                <div class="meta">
+                  <span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
+                </div>
+                <div class="extra">
+                  <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <h4 class="ui grey inverted header">This user hasn't attended any events yet.</h4>
+      <% end %>
+    </div>
+  </div>
 </div>
