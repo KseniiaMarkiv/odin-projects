@@ -1,3 +1,5 @@
+<% avatars = ["avatar/small/jenny.jpg", "avatar/small/christian.jpg", "avatar/small/stevie.jpg", "avatar/small/matt.jpg"] %>
+
 <div id="<%= dom_id event %>">
 
   <div class="slideshow-container">
@@ -51,12 +53,29 @@
     </div>
 
     <div class="six wide column">
-      <% if current_user.attended_events.include?(@event) %>
-        <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You have already reserved a ticket for this event!</h4>
-        <%= button_to 'Cancel Ticket', attendance_path(event_id: @event.id), method: :delete, class: 'ui button orange' %>
-      <% else %>
-        <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary mt-5' %>
-      <% end %>
+      <div>
+        <% if current_user.attended_events.include?(@event) %>
+          <h4 class="ui teal header my-5"><i class="calendar check outline icon"></i> You have already reserved a ticket for this event!</h4>
+          <%= button_to 'Cancel Ticket', attendance_path(event_id: @event.id), method: :delete, class: 'ui button orange' %>
+        <% else %>
+          <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary mt-5' %>
+        <% end %>
+      </div>
+      <div class="mt-5">
+        <h3>Attendees</h3>
+          <dl>
+            <% @event.attendees.each do |attendee| %>
+              <div class="item">
+                <dt class="content">
+                  <span class="header">
+                    <%= image_tag cycle(*avatars), class: "ui avatar image" %>
+                    <span class="space-mono-regular"> <%= attendee.username %> </span>
+                  </span>
+                </dt>
+              </div>
+            <% end %>
+          </dl>
+      </div>
     </div>
   </div>
 
