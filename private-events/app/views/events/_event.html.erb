@@ -61,21 +61,25 @@
           <%= button_to 'Get Tickets', attendances_path(event_id: @event.id), method: :post, class: 'ui button primary mt-5' %>
         <% end %>
       </div>
-      <div class="mt-5">
-        <h3>Attendees</h3>
-          <dl>
-            <% @event.attendees.each do |attendee| %>
-              <div class="item">
-                <dt class="content">
-                  <span class="header">
-                    <%= image_tag cycle(*avatars), class: "ui avatar image" %>
-                    <span class="space-mono-regular"> <%= attendee.username %> </span>
-                  </span>
-                </dt>
-              </div>
-            <% end %>
-          </dl>
-      </div>
+      <% if @event.attendees.any? %>
+        <div class="mt-5">
+          <h3>Attendees</h3>
+            <dl>
+              <% @event.attendees.each do |attendee| %>
+                <div class="item">
+                  <dt class="content">
+                    <span class="header">
+                      <%= image_tag cycle(*avatars), class: "ui avatar image" %>
+                      <span class="space-mono-regular"> <%= attendee.username %> </span>
+                    </span>
+                  </dt>
+                </div>
+              <% end %>
+            </dl>
+        </div>
+      <% else %>
+        <h5 class="ui teal header my-5"><i class="calendar check outline icon"></i> Hurry up, you can become the first attendee</h5>
+      <% end %>
     </div>
   </div>
 
