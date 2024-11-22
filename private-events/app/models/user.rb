@@ -11,6 +11,11 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :attended_events, through: :attendances, source: :event
 
+  # Instance method to fetch upcoming attended events
+  def upcoming_events
+    attended_events.where("date >= ?", Time.zone.now).order(:date)
+  end
+
   private
 
   def password_complexity
