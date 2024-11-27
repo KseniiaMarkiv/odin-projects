@@ -12,7 +12,9 @@ This repository contains Ruby on Rails projects completed as part of [The Odin P
 
 4. **Members-only**: A community site where only signed-in members can create, edit, and manage posts. This project focuses on user authentication with sessions, implementing authorization rules, and managing user roles, covering more advanced topics like secure password management. [Project details](https://www.theodinproject.com/lessons/ruby-on-rails-members-only)
 
-5. **Postgres-app**: A simple Rails application created to check PostgreSQL setup and integration. This project follows The Odin Project's guide on "Installing PostgreSQL" to configure a Rails app using PostgreSQL as the primary database. 
+5. **Postgres-app**: A simple Rails application created to check PostgreSQL setup and integration. This project follows The Odin Project's guide on "Installing PostgreSQL" to configure a Rails app using PostgreSQL as the primary database. [Project details](https://www.theodinproject.com/lessons/ruby-on-rails-installing-postgresql)
+
+6. **Private Events**: This project involves building a platform for creating and attending private events. It includes features for user authentication, event creation and management, and event attendance. The application demonstrates the use of associations, query handling, and responsive UI using Semantic UI.[Project details](https://www.theodinproject.com/lessons/ruby-on-rails-private-events)
 
 > [!IMPORTANT]  
 > The `auth-branch` branch was for implementing authentication by Device with Responders gems, and the `post` branch was for implementing a Post MVC with associations.
