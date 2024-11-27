@@ -13,7 +13,12 @@ class User < ApplicationRecord
 
   # Instance method to fetch upcoming attended events
   def upcoming_events
-    attended_events.where("date >= ?", Time.zone.now).order(:date)
+    attended_events.upcoming
+  end
+
+  # Instance method to fetch past attended events
+  def past_events
+    attended_events.past
   end
 
   private

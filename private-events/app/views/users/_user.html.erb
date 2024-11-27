@@ -32,11 +32,12 @@
     </div>
   </div>
 
-  <div class="ui segment">
-    <div class="ui grid">
-      <!-- Left Column: Events Created by User -->
-      <div class="eight wide column">
-        <h3 class="ui center aligned header grey mt-1">Events Created by <%= user.username %></h3>
+
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui raised segment">
+        <!-- Left Column: Events Created by User -->
+        <h3 class="ui aligned header grey mt-1 ms-4">Events Created by <%= user.username %></h3>
         <% if user.events.any? %>
           <div class="ui divided items">
             <% user.events.each do |event| %>
@@ -60,13 +61,16 @@
           <h4 class="ui grey inverted header">This user hasn't created any events yet.</h4>
         <% end %>
       </div>
-
-      <!-- Right Column: Events Attended by User -->
-      <div class="eight wide column">
-        <h3 class="ui center aligned header grey mt-1">Events Attended by <%= user.username %></h3>
-        <% if user.attended_events.any? %>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <!-- Right Column: Events Attended by User -->
+        <h3 class="ui header aligned grey mt-1">
+          <a class="ui teal right ribbon label">Past</a> Events Attended by <%= user.username %>
+        </h3>
+        <% if user.past_events.any? %>
           <div class="ui divided items">
-            <% user.attended_events.each do |event| %>
+            <% user.past_events.each do |event| %>
               <div class="item">
                 <div class="content my-2 px-1">
                   <h2><%= link_to event.title, event_path(event) %></h2>
@@ -83,10 +87,11 @@
               </div>
             <% end %>
           </div>
-        <% else %>
-          <h4 class="ui grey inverted header">This user hasn't attended any events yet.</h4>
-        <% end %>
+          <% else %>
+            <h4 class="ui grey inverted header">This user hasn't attended any events yet.</h4>
+          <% end %>
       </div>
     </div>
   </div>
+
 </div>
