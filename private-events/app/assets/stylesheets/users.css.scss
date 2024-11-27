@@ -1,0 +1,9 @@
+.label-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.label-section .ui.red.tag.label {
+  margin-left: auto; /* Pushes the label to the right */
+}

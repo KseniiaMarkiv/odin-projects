@@ -12,23 +12,28 @@
       </div>
     </div>
     <div class="ten wide column">
-      <% if user.upcoming_events.any? %>
-        <div class="ui relaxed divided list my-1">
-          <% user.upcoming_events.each do |event| %>
-            <div class="item">
-              <div class="content">
-                  <h4 class="header">
-                    <a><%= link_to event.title, event_path(event) %></a>
-                  </h4> 
-                  <div class="description"><span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span></div>
-              </div>
+      <div class="label-section">
+        <div>
+          <% if user.upcoming_events.any? %>
+            <div class="ui relaxed divided list my-1">
+              <% user.upcoming_events.each do |event| %>
+                <div class="item">
+                  <div class="content">
+                      <h4 class="header">
+                        <a><%= link_to event.title, event_path(event) %></a>
+                      </h4> 
+                      <div class="description"><span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span></div>
+                  </div>
+                </div>
+              <% end %>
             </div>
+            <p class="ui tiny header" bis_skin_checked="1">Total Upcoming Events: <%= user.upcoming_events.size %></p>
+          <% else %>
+            <h4 class="ui grey inverted header">This user has no upcoming attended events.</h4>
           <% end %>
         </div>
-        <p class="ui tiny header" bis_skin_checked="1">Total Upcoming Events: <%= user.upcoming_events.size %></p>
-      <% else %>
-        <h4 class="ui grey inverted header">This user has no upcoming attended events.</h4>
-      <% end %>
+        <a class="ui red tag label mt-1">Upcoming</a>
+      </div>
     </div>
   </div>
 
