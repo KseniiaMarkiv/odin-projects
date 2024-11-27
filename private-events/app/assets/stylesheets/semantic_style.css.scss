@@ -140,6 +140,7 @@ $breakpoints: (
 @include margin-utilities;
 @include padding-utilities;
 
+// FONTS
 
 .space-mono-regular {
   font-family: "Space Mono", monospace !important;
@@ -163,4 +164,10 @@ $breakpoints: (
   font-family: "Space Mono", monospace !important;
   font-weight: 700 !important;
   font-style: italic !important;
+}
+
+// COLORS
+
+.black-color {
+  color: #000 !important;
 }
