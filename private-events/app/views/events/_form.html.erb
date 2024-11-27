@@ -1,0 +1,53 @@
+<h2 class="ui header">Create Event</h2>
+
+<%= form_with(model: event, html: { class: "ui form", "data-turbo" => "false" }) do |form| %>
+  <% if event.errors.any? %>
+    <div class="mb-3">
+      <h5 class="ui red inverted header space-mono-regular"> <%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h5>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, placeholder: "Event Title", autofocus: true %>
+    <% event.errors.full_messages_for(:title).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_field :date, placeholder: "Event Date and Time" %>
+    <% event.errors.full_messages_for(:date).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, placeholder: "Event Location" %>
+    <% event.errors.full_messages_for(:location).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, placeholder: "Event Description", rows: 4 %>
+    <% event.errors.full_messages_for(:description).each do |message| %>
+      <h5 class="ui red inverted header space-mono-regular m-0">
+        <small><%= message %></small>
+      </h5>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.submit "Create Event", class: "ui primary button" %>
+  </div>
+<% end %>

@@ -1,0 +1,102 @@
+<div id="<%= dom_id user %>">
+  <div class="ui grid">
+    <div class="six wide column">
+      <div class="ui card">
+        <div class="image">
+          <%= image_tag "avatar/large/image.png" %>
+        </div>
+        <div class="content">
+          <a class="header"><%= user.username %></a>
+          <%= user.email %>
+        </div>
+      </div>
+    </div>
+    <div class="ten wide column">
+      <div class="label-section">
+        <div>
+          <% if user.upcoming_events.any? %>
+            <div class="ui relaxed divided list my-1">
+              <% user.upcoming_events.each do |event| %>
+                <div class="item">
+                  <div class="content">
+                      <h4 class="header">
+                        <a><%= link_to event.title, event_path(event) %></a>
+                      </h4> 
+                      <div class="description"><span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <p class="ui tiny header" bis_skin_checked="1">Total Upcoming Events: <%= user.upcoming_events.size %></p>
+          <% else %>
+            <h4 class="ui grey inverted header">This user has no upcoming attended events.</h4>
+          <% end %>
+        </div>
+        <a class="ui red tag label mt-1">Upcoming</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui raised segment">
+        <!-- Left Column: Events Created by User -->
+        <h3 class="ui aligned header grey mt-1 ms-4">Events Created by <%= user.username %></h3>
+        <% if user.events.any? %>
+          <div class="ui divided items">
+            <% user.events.each do |event| %>
+              <div class="item">
+                <div class="content my-2 px-1">
+                  <h2><%= link_to event.title, event_path(event) %></h2>
+                  <div class="description justified-text">
+                    <p><%= event.description %></p>
+                  </div>
+                  <div class="meta">
+                    <span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
+                  </div>
+                  <div class="extra">
+                    <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <h4 class="ui grey inverted header">This user hasn't created any events yet.</h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <!-- Right Column: Events Attended by User -->
+        <h3 class="ui header aligned grey mt-1">
+          <a class="ui teal right ribbon label">Past</a> Events Attended by <%= user.username %>
+        </h3>
+        <% if user.past_events.any? %>
+          <div class="ui divided items">
+            <% user.past_events.each do |event| %>
+              <div class="item">
+                <div class="content my-2 px-1">
+                  <h2><%= link_to event.title, event_path(event) %></h2>
+                  <div class="description justified-text">
+                    <p><%= event.description %></p>
+                  </div>
+                  <div class="meta">
+                    <span class="space-mono-regular"><%= event.date.strftime("%B %d, %Y at %I:%M %p") %></span>
+                  </div>
+                  <div class="extra">
+                    <%= link_to "View Event", event_path(event), class: "ui blue button small" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <% else %>
+            <h4 class="ui grey inverted header">This user hasn't attended any events yet.</h4>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

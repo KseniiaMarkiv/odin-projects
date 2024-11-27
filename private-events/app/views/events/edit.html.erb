@@ -1,0 +1,11 @@
+<h1>Editing event</h1>
+
+<%= render "form", event: @event %>
+
+<br>
+
+<div class="ui buttons">
+  <%= link_to "Show this event", @event, class: "ui positive button" %> |
+  <div class="or"></div>
+  <%= link_to "Back to events", events_path, class: "ui button" %>
+</div>

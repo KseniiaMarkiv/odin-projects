@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrivateEvents</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- Navbar (full-width) -->
+    <%= render 'layouts/navbar' %>
+
+    <% if flash[:alert] %>
+      <div class="ui container alert-msg m-1"> 
+        <% flash.each do |key, message| %> 
+        <div class="ui <%= key == 'notice' ? 'green' : (key == 'alert' ? 'red' : 'yellow') %> message px-2 py-2"> 
+          <i class="close icon"></i> <div class="header pe-1"> <%= message %> 
+        </div> 
+        <% end %> 
+        </div>
+      </div>
+    <% end %> 
+    
+    <div class="ui main container grid">
+      <div class="column">
+        <div class="ui container my-3">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <script> $('.ui.message .close').on('click', function() { $(this).closest('.ui.message').fadeOut(); }); </script>
+  </body>
+</html>
