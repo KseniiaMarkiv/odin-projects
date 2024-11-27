@@ -62,3 +62,15 @@
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6).events-created {
   font-size: small;
 }
+
+.ui.message {
+  z-index: 999;
+  width: fit-content;
+  display: flex;
+  left: 50%;
+}
+
+.ui.container.alert-msg {
+  position: absolute;
+  z-index: 998;
+}
