@@ -7,6 +7,9 @@ class Event < ApplicationRecord
   validates :date, presence: true 
   validates :location, presence: true 
   validates :description, presence: true, length: { in: 10..3000 }
+
+  scope :upcoming, -> { where("date >= ?", Time.zone.now).order(:date) }
+  scope :past, -> { where("date < ?", Time.zone.now).order(:date) }
   
   
   def absent_location

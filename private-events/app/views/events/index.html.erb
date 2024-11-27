@@ -1,34 +1,70 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Events</h1>
+<h1 class="ui centered header my-3">Events</h1>
 
-<div id="events">
-  <% @events.each do |event| %>
-    <h2>
-      <%= event.title %>
-    </h2>
+<div class="ui two column grid">
+  <div class="column">
+    <div class="ui raised segment">
+        <a class="ui teal ribbon label">Past</a>
+        <% @events.past.each do |event| %>
+          <h2>
+            <%= event.title %>
+          </h2>
 
-    <p>
-      <strong>Date:</strong>
-      <%= event.date.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
-    </p>
+          <p>
+            <strong>Date:</strong>
+            <%= event.date.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
+          </p>
 
-    <p>
-      <strong>Location:</strong>
-    <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
-      <%= content_tag :i, "", class: "teal video icon ms-1" %>
-      <%= event.location %>
-    </p>
+          <p>
+            <strong>Location:</strong>
+          <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
+            <%= content_tag :i, "", class: "teal video icon ms-1" %>
+            <%= event.location %>
+          </p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= event.description %>
-    </p>
+          <p>
+            <strong>Description:</strong>
+            <%= event.description %>
+          </p>
 
-    <p>
-      <%= link_to "Show this event", event, class: "ui primary mini button" %>
-    </p>
-  <% end %>
+          <p>
+            <%= link_to "Show this event", event, class: "ui primary mini button" %>
+          </p>
+        <% end %>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+      <a class="ui orange right ribbon label">Upcoming</a>
+      <% @events.upcoming.each do |event| %>
+        <h2>
+          <%= event.title %>
+        </h2>
+
+        <p>
+          <strong>Date:</strong>
+          <%= event.date.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y, %I:%M %p") %>
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+        <!-- <i class="teal video icon"></i>   - it's usual icon in HTML doc -->
+          <%= content_tag :i, "", class: "teal video icon ms-1" %>
+          <%= event.location %>
+        </p>
+
+        <p>
+          <strong>Description:</strong>
+          <%= event.description %>
+        </p>
+
+        <p>
+          <%= link_to "Show this event", event, class: "ui primary mini button" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%= link_to "New event", new_event_path, class: "ui green button mt-2" %>
